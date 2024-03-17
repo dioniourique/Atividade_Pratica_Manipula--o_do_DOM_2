@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercicio querySelectorAll e setAttribute</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Full Stack </p>
+            <button class="botao-editar">Editar</button>
+            <button class="botao-apagar">Deletar</button>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">UX/UI Designer</p>
+            <button class="botao-editar">Editar</button>
+            <button class="botao-apagar">Deletar</button>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Data Science</p>
+            <button class="botao-editar">Editar</button>
+            <button class="botao-apagar">Deletar</button>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Quality Assurance</p>
+            <button class="botao-editar">Editar</button>
+            <button class="botao-apagar">Deletar</button>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Advanced Mobile</p>
+            <button class="botao-editar">Editar</button>
+            <button class="botao-apagar">Deletar</button>
+        </div>
+    </div>
+
+    <script>
+        function editarCard() {
+            alert("Clicou em Editar!");
+        }
+
+        function apagarCard() {
+            if (confirm("Tem certeza que deseja excluir o card")) {
+                alert("Confirmado!");
+            } else {
+                alert("Cancelou!");
+            }
+        }
+
+        window.onload = function () {
+            let cards = document.querySelectorAll('.card');
+            let titulos = document.querySelectorAll('.titulo-card');
+            let descricoes = document.querySelectorAll('.descricao-card');
+            let botoesEditar = document.querySelectorAll('.botao-editar');
+            let botoesApagar = document.querySelectorAll('.botao-apagar');
+
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].style.backgroundColor = 'orange';
+                cards[i].style.color = 'black';
+                titulos[i].textContent = 'Meu card';
+                titulos[i].style.fontSize = '20px';
+                descricoes[i].textContent = 'Descrição modificada pelo JavaScript';
+                descricoes[i].style.fontSize = '16px';
+                botoesEditar[i].style.backgroundColor = 'green';
+                botoesEditar[i].setAttribute('onclick', 'editarCard()');
+                botoesApagar[i].style.backgroundColor = 'red';
+                botoesApagar[i].setAttribute('onclick', 'apagarCard()');
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
